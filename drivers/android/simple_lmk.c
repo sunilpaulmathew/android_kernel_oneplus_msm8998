@@ -5,7 +5,6 @@
 
 #define pr_fmt(fmt) "simple_lmk: " fmt
 
-#include <linux/delay.h>
 #include <linux/kthread.h>
 #include <linux/mm.h>
 #include <linux/moduleparam.h>
@@ -250,6 +249,7 @@ static int simple_lmk_reclaim_thread(void *data)
 	sched_setscheduler_nocheck(current, SCHED_FIFO, &sched_max_rt_prio);
 
 	while (1) {
+<<<<<<< HEAD
 		bool should_stop;
 
 		wait_event(oom_waitq, (should_stop = kthread_should_stop()) ||
@@ -269,6 +269,10 @@ static int simple_lmk_reclaim_thread(void *data)
 			scan_and_kill(MIN_FREE_PAGES);
 			msleep(20);
 		} while (READ_ONCE(needs_reclaim));
+=======
+		wait_event(oom_waitq, atomic_add_unless(&needs_reclaim, -1, 0));
+		scan_and_kill(MIN_FREE_PAGES);
+>>>>>>> 77c531f66919... simple_lmk: Make reclaim deterministic
 	}
 
 	return 0;
@@ -276,6 +280,7 @@ static int simple_lmk_reclaim_thread(void *data)
 
 void simple_lmk_decide_reclaim(int kswapd_priority)
 {
+<<<<<<< HEAD
 	if (kswapd_priority != CONFIG_ANDROID_SIMPLE_LMK_AGGRESSION)
 		return;
 
@@ -286,6 +291,20 @@ void simple_lmk_decide_reclaim(int kswapd_priority)
 void simple_lmk_stop_reclaim(void)
 {
 	WRITE_ONCE(needs_reclaim, false);
+=======
+	if (kswapd_priority == CONFIG_ANDROID_SIMPLE_LMK_AGGRESSION) {
+		int v, v1;
+
+		for (v = 0;; v = v1) {
+			v1 = atomic_cmpxchg(&needs_reclaim, v, v + 1);
+			if (likely(v1 == v)) {
+				if (!v)
+					wake_up(&oom_waitq);
+				break;
+			}
+		}
+	}
+>>>>>>> 77c531f66919... simple_lmk: Make reclaim deterministic
 }
 
 void simple_lmk_mm_freed(struct mm_struct *mm)
