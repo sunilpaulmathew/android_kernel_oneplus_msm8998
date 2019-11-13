@@ -52,5 +52,11 @@ if FB || SGI_NEWPORT_CONSOLE
 
 endif
 
+config KLAPSE
+    bool
+    default y
+    help
+        A simple rgb dynamic lapsing module similar to LineageOS' livedisplay
+
 
 endmenu
