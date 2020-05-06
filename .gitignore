@@ -52,7 +52,13 @@ Module.symvers
 /System.map
 /Module.markers
 /output_*
-/release_SmartPack
+/AnyKernel
+/release
+
+#
+# Build Script
+#
+build_SmartPack.sh
 
 #
 # Debian directory (make deb-pkg)
