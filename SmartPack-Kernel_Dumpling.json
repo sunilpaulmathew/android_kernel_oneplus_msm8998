@@ -1,0 +1,13 @@
+{
+  "kernel": {
+    "sha1": "37a438bd72f59039ff7c716b12f13c5c2f4ef1f8",
+    "name": "SmartPack-Kernel",
+    "link": "https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/releases/download/v1/SmartPack-Kernel-dumpling-v1-20200506.zip",
+    "changelog_url": "Initial Release (Only for Android 10 based Oxygen OS).",
+    "version": "v1"
+  },
+  "support": {
+    "link": "",
+    "donation": "https://www.paypal.me/menacherry"
+  }
+}
