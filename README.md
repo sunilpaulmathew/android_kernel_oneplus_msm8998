@@ -1,3 +1,10 @@
+### SmartPack-Kernel for OnePlus 5/5T
+
+[![](https://img.shields.io/badge/SmartPack--Kernel-v1.0-green)](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/releases/download/v1/SmartPack-Kernel-dumpling-v1-20200506.zip)
+![](https://img.shields.io/github/downloads/sunilpaulmathew/android_kernel_oneplus_msm8998/total)
+![](https://img.shields.io/github/languages/top/sunilpaulmathew/android_kernel_oneplus_msm8998)
+![](https://img.shields.io/github/contributors/sunilpaulmathew/android_kernel_oneplus_msm8998)
+
         Linux kernel release 4.x <http://kernel.org/>
 
 These are the release notes for Linux version 4.  Read them carefully,
