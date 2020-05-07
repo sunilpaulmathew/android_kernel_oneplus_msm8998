@@ -399,7 +399,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Wno-format-security -Wno-bool-compare -Wno-stringop-overflow -Wno-misleading-indentation \
 		   -Wno-bool-operation -Wno-duplicate-decl-specifier -Wno-parentheses -Wno-memset-elt-size -Wno-attribute-alias \
 		   -Wno-sizeof-pointer-memaccess -Wno-stringop-truncation -Wno-packed-not-aligned -Wno-array-bounds \
-		   -Wno-psabi -Wno-address-of-packed-member \
+		   -Wno-psabi -Wno-address-of-packed-member -Wno-restrict \
 		   -std=gnu89 $(call cc-option,-fno-PIE)
 
 ifeq ($(TARGET_BOARD_TYPE),auto)
