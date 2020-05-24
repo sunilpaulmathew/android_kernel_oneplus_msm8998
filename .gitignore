@@ -52,7 +52,6 @@ Module.symvers
 /System.map
 /Module.markers
 /output_*
-/AnyKernel
 /release
 
 #
