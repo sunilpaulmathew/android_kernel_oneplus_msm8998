@@ -35,11 +35,17 @@ ramdisk_compression=auto;
 set_perm_recursive 0 0 755 644 $ramdisk/*;
 
 if [ -e $ramdisk/kernel_profiler ]; then
-	# Inject Kernel Profiler support
-	if [ -e $ramdisk/kernel_profiler/banner.png ]; then
-		mv $ramdisk/kernel_profiler/banner.png /sdcard/
+        # Inject Kernel Profiler support
+        if [ -e $ramdisk/kernel_profiler/banner.png ]; then
+                mv $ramdisk/kernel_profiler/banner.png /sdcard/
+        fi
+	if [ -e /data/kernel_profiler ]; then
+	        # Remove old files
+		rm -rf /data/kernel_profiler/*
+		mv $ramdisk/kernel_profiler/* /data/kernel_profiler/
+	else
+        	mv $ramdisk/kernel_profiler/ /data/
 	fi
-	mv $ramdisk/kernel_profiler/ /data/
 fi
 
 ## AnyKernel install
