@@ -36,9 +36,6 @@ set_perm_recursive 0 0 755 644 $ramdisk/*;
 
 if [ -e $ramdisk/kernel_profiler ]; then
         # Inject Kernel Profiler support
-        if [ -e $ramdisk/kernel_profiler/banner.png ]; then
-                mv $ramdisk/kernel_profiler/banner.png /sdcard/
-        fi
 	if [ -e /data/kernel_profiler ]; then
 	        # Remove old files
 		rm -rf /data/kernel_profiler/*
