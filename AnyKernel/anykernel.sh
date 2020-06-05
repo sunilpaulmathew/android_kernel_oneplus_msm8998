@@ -34,6 +34,17 @@ ramdisk_compression=auto;
 # set permissions/ownership for included ramdisk files
 set_perm_recursive 0 0 755 644 $ramdisk/*;
 
+if [ -e $ramdisk/kernel_profiler ]; then
+        # Inject Kernel Profiler support
+	if [ -e /data/kernel_profiler ]; then
+	        # Remove old files
+		rm -rf /data/kernel_profiler/*
+		mv $ramdisk/kernel_profiler/* /data/kernel_profiler/
+	else
+        	mv $ramdisk/kernel_profiler/ /data/
+	fi
+fi
+
 ## AnyKernel install
 dump_boot;
 
