@@ -1,0 +1,13 @@
+{
+  "kernel": {
+    "sha1": "d9d7a2c2bc2da1a2670d7c68c74087bbbccd432b",
+    "name": "SmartPack-Kernel",
+    "link": "https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/releases/download/v2/SmartPack-Kernel-dumpling-v2-20200815.zip",
+    "changelog_url": "Updated for stable Oxygen OS.",
+    "version": "v2"
+  },
+  "support": {
+    "link": "",
+    "donation": "https://www.paypal.me/menacherry"
+  }
+}
